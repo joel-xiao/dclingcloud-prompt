@@ -1,4 +1,4 @@
-## 用户输入模版实例（配合系统提示词 T1~T7）
+## 用户输入模版实例（配合系统提示词 T1~T8）
 
 ```text
 模板：T1 参考页面改造（跨项目参考）
@@ -56,3 +56,11 @@ binding.value 类型：{ text: string; gap?: number; opacity?: number }
 期望调用方：src/views/appMonitoring/codeTracking/pages/CodeTrackingDetail.vue；src/views/appMonitoring/codeTracking/CallChain/index.vue
 ```
 
+```text
+模板：T8 已有页面增加逻辑（参考页面或目录）
+目标页面/目录：src/views/appMonitoring/codeTracking/pages/CodeTrackingDetail.vue
+参考页面/目录：src/views/appMonitoring/codeTracking/CallChain
+要增加的逻辑：对 traceId 做解析 + 增加一个聚合计算 + 交互联动（点击某行高亮）
+是否改动 UI：否（只加交互与数据处理）
+输入/输出与边界：traceId 为空显示 --；接口失败展示空态
+```
