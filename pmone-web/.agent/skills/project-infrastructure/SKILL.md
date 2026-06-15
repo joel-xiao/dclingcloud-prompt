@@ -1,0 +1,19 @@
+---
+name: project-infrastructure
+description: 开发过程中涉及调用全局工具方法 src/utils、公共枚举 src/enums、公共 Hooks src/hooks、全局公共组件 src/components 和网络请求接口 src/api 时触发。引导优先检索公共资产，严禁编写重复的基础逻辑。
+---
+
+# 场景基准：项目底层资产检索与复用规范
+
+## 1. 场景特征识别
+- 在开发任何新页面、实现特定逻辑或进行样式排版时触发。
+- 旨在通过映射底层已有封装，避免开发者重复造轮子，保证项目代码风格与全局资产的一致性。
+
+## 2. 核心大纲规范与检索指针
+开发或重构前，AI 必须率先检查并遵守全局公共组件与库：
+1. **网络层接口管理**：全部集中定义在 `src/api/modules/`。
+2. **全局工具与枚举**：数字状态映射、时钟与采样粒度转换对齐。
+3. **全局通用组件**：按钮、页面包裹容器、卡片排版骨架直接复用。
+
+## 3. 详细检索索引
+- 📖 [工具、枚举与全局 Hooks 检索基准](file:///Users/xiao/Documents/xiao/YUHENG/Projects/link-analysis-web-dev/link-analysis-web/.agent/skills/project-infrastructure/references/assets-guide.md)
