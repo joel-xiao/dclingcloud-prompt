@@ -16,4 +16,4 @@ description: 开发过程中涉及调用全局工具方法 src/utils、公共枚
 3. **全局通用组件**：按钮、页面包裹容器、卡片排版骨架直接复用。
 
 ## 3. 详细检索索引
-- 📖 [工具、枚举与全局 Hooks 检索基准](file:///Users/xiao/Documents/xiao/YUHENG/Projects/link-analysis-web-dev/link-analysis-web/.agent/skills/project-infrastructure/references/assets-guide.md)
+- [工具、枚举与全局 Hooks 检索基准](./references/assets-guide.md)
