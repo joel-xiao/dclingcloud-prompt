@@ -1,18 +1,42 @@
-# 底层资产场景：全局公共资产检索与对齐指南
+# 底层资产场景：通用组件与公共要素检索指南
 
-本规范规定如何定位并引用项目现有的公共底层资产。
+开发新功能或编写新组件前，必须优先查阅并复用本指南中定义的底层公共资产，杜绝重复造轮子。
 
-## 1. 公共 Hooks 检索与复用 (`src/hooks/`)
-- **表格逻辑管理 (`useTable`)**：封装了分页、加载状态、搜索重置。开发表格页直接使用，杜绝局部手写。
-- **确认弹窗操作 (`useHandleData`)**：删除、切换状态操作建议调用，统一包装 `ElMessageBox.confirm` 的提示与异步回调。
-- **行多选状态管理 (`useSelection`)**：标准化批量操作选择框勾选列表。
+## 1. 全局通用组件检索库 (src/components/)
 
-## 2. 工具类与接口规约
-- **时序工具 (`src/utils/period.ts`)**：提供大盘时间采样粒度及格式的计算。
-- **网络请求客户端 (`src/utils/request`)**：全局 Axios 封装，严禁局部创建 AXIOS 实例。
-- **公共枚举映射 (`src/enums/`)**：状态判断判定（例如配置启用/禁用、应用系统类型）必须引入底层 Enum 声明，杜绝在模板中写魔法数字。
+- **ProTable-v2** (`src/components/ProTable-v2/`):
+  - 适用：统一的数据表格与查询列表组件。
+- **headerFilter-v2** (`src/components/headerFilter-v2/`):
+  - 适用：页面顶部通用查询过滤栏。
+- **SectionFilter** (`src/components/SectionFilter/`):
+  - 适用：块级或分段的多选条件过滤器（如细分维度筛选）。
+- **Charts / ChartContent** (`src/components/Charts/`, `src/components/ChartContent/`):
+  - 适用：时序趋势图、饼图等数据可视化大盘，以及大盘图表卡片的统一样式包裹层。
+- **DataOverview** (`src/components/DataOverview/`):
+  - 适用：顶部核心统计指标卡片网格，展示总量、环比、占比等。
+- **BusinessTabs** (`src/components/BusinessTabs/`):
+  - 适用：页面内部或业务维度的 Tab 标签页切换。
+- **Description** (`src/components/Description/`):
+  - 适用：键值对排版的只读详情展示面板。
+- **Dialog / Drawer** (`src/components/Dialog/`, `src/components/Drawer/`):
+  - 适用：全局统一样式与动画的对话框和侧边抽屉容器。
+- **Status** (`src/components/Status/`):
+  - 适用：表格行中带彩色圆点的状态指示标签。
+- **SvgIcon** (`src/components/SvgIcon/`):
+  - 适用：项目中本地 SVG 图标文件的统一载入。
 
-## 3. 视觉稿/原型映射基准 (Image to Code)
-当接收到视觉页面原型时：
-1. **寻找重用模式**：判断页面是 CRUD（ProTable）、看板大盘（MetricCharts）还是调用链（Waterfall）。
-2. **结构定位**：禁止编写大量的硬编码布局样式。统一按系统栅格进行网格排版；Vue 单文件内 `<style>` 超过 50 行必须单独抽取 `.scss` 文件引入。
+## 2. 全局通用逻辑要素
+
+- **自定义指令 (src/directives/)**:
+  - 全局常用行为拦截指令（如防抖、长按、权限控制、拖拽等）。
+- **状态管理 (src/stores/)**:
+  - 统一存储，如 `period.ts` 时间范围控制、`user.ts` 权限管理等。
+- **公共 Hooks (src/hooks/)**:
+  - `useTable`：封装分页请求。
+  - `useHandleData`：二次确认与请求联动。
+  - `useSelection`：多选状态维护。
+- **通用工具类 (src/utils/)**:
+  - `period.ts` 时间周期与自适应采样计算。
+  - `request.ts` 全局 HTTP 请求实例。
+- **数据枚举映射 (src/enums/)**:
+  - 系统类型、状态码、权限标识等核心字段定义。

@@ -17,3 +17,4 @@ description: 开发过程中涉及调用全局工具方法 src/utils、公共枚
 
 ## 3. 详细检索索引
 - [工具、枚举与全局 Hooks 检索基准](./references/assets-guide.md)
+- [标准主题页面开发参考基准](./references/reference-pages.md)
